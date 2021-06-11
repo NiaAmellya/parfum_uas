@@ -27,6 +27,7 @@ dependencies:
   google_sign_in: any
   cloud_firestore: any
   firebase_core: any
+  carousel_pro : ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -48,9 +49,36 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - images/start.jpg
+    - images/login.jpg
+    - images/welcome.jpg
+    - img/logo.png
+    - img/img1.jpg
+    - img/img2.jpg
+    - img/img3.jpg
+    - img/img4.jpg
+    - img/img5.jpg
+    - img/img6.jpg
+    - img/img7.jpg
+    - img/cw1.jpeg
+    - img/cw2.jpeg
+    - img/cw3.jpeg
+    - img/cw4.jpeg
+    - img/cw5.jpeg
+    - img/cw6.jpeg
+    - img/pic1.jpeg
+    - img/pic2.jpeg
+    - img/pic3.jpeg
+    - img/pic4.jpeg
+    - img/pic5.jpeg
+    - img/pic6.jpeg
+    - img/pic7.jpeg
+    - img/pic8.jpeg
+    - img/pic9.jpeg
+    - img/man.jpeg
+    - img/woman.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

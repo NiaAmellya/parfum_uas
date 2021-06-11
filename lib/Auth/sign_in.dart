@@ -7,6 +7,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
 
 String name;
 String email;
+String userUid;
 String imageUrl;
 
 Future<String> signInWithGoogle() async {
@@ -21,6 +22,7 @@ Future<String> signInWithGoogle() async {
   final UserCredential authResult =
       await _auth.signInWithCredential(credential);
   final User user = authResult.user;
+  userUid = user.uid;
   if (user != null) {
     // Checking if email and name is null
     assert(user.email != null);
@@ -47,10 +49,11 @@ Future<String> signInWithGoogle() async {
 Future<String> signInWithEmailAndPassword(String email, String password) async {
   await Firebase.initializeApp();
 
-  UserCredential userAuth = (await _auth.signInWithEmailAndPassword(email: email, password: password));
+  UserCredential userAuth = (await _auth.signInWithEmailAndPassword(
+      email: email, password: password));
   User user = userAuth.user;
 
-  if(user != null) {
+  if (user != null) {
     //checking if email and name is null
     assert(user.email != null);
 
@@ -58,7 +61,7 @@ Future<String> signInWithEmailAndPassword(String email, String password) async {
     email = user.email;
     imageUrl = user.email;
     //Only taking the first part of the name, i.e., First Name
-    if(name.contains(" ")) {
+    if (name.contains(" ")) {
       name = name.substring(0, name.indexOf("@"));
     }
     assert(!user.isAnonymous);
