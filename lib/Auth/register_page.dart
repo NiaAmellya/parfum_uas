@@ -19,6 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red[100],
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: SafeArea(
@@ -216,7 +217,7 @@ class _RegisterPageState extends State<RegisterPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        color: Color(0xff607Cbf),
+        color: Colors.red[300],
         elevation: 0,
         padding: EdgeInsets.symmetric(vertical: 16),
       ),

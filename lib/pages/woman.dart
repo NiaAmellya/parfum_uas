@@ -29,33 +29,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red[200],
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
-        ),
-        title: Container(
-          width: 50,
-          height: 50,
-          child: Column(
-            children: <Widget>[
-              new Image.asset("images/logo.png"),
-            ],
-          ),
-        ),
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-          ),
-        ],
+        title: Text(' '),
+        backgroundColor: Colors.red[400],
       ),
       body: Container(
         padding: EdgeInsets.all(20),
@@ -63,8 +40,8 @@ class _MainPageState extends State<MainPage> {
           crossAxisCount: 2,
           children: List.generate(6, createItem),
           crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.6,
+          mainAxisSpacing: 5,
+          childAspectRatio: 0.7,
         ),
       ),
     );
@@ -102,7 +79,7 @@ class _MainPageState extends State<MainPage> {
               Hero(
                 tag: 'img$newNum',
                 child: Container(
-                  height: 150,
+                  height: 90,
                   child: Image.asset('img/img$newNum.jpg'),
                 ),
               ),

@@ -2,19 +2,25 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:parfum_uas/Auth/sign_in.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-final CollectionReference _mainCollection = _firestore.collection('kategori');
+final CollectionReference _mainCollection = _firestore.collection('custom');
 
 class Database {
   static Future<void> addItem({
-    String title,
-    String description,
+    String nama,
+    String jenis,
+    String ukuran,
+    String aroma,
+    String packaging,
   }) async {
     DocumentReference documentReferencer =
         _mainCollection.doc(userUid).collection('items').doc();
 
     Map<String, dynamic> data = <String, dynamic>{
-      "title": title,
-      "description": description,
+      "nama": nama,
+      "jenis": jenis,
+      "ukuran": ukuran,
+      "aroma": aroma,
+      "packaging": packaging,
     };
 
     await documentReferencer
@@ -24,16 +30,22 @@ class Database {
   }
 
   static Future<void> updateItem({
-    String title,
-    String description,
+    String nama,
+    String jenis,
+    String ukuran,
+    String aroma,
+    String packaging,
     String docId,
   }) async {
     DocumentReference documentReferencer =
         _mainCollection.doc(userUid).collection('items').doc(docId);
 
     Map<String, dynamic> data = <String, dynamic>{
-      "title": title,
-      "description": description,
+      "nama": nama,
+      "jenis": jenis,
+      "ukuran": ukuran,
+      "aroma": aroma,
+      "packaging": packaging,
     };
 
     await documentReferencer

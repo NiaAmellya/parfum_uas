@@ -1,23 +1,35 @@
 import 'package:flutter/material.dart';
 
-import 'package:parfum_uas/res/custom_colors.dart';
+//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/utils/database.dart';
 import 'package:parfum_uas/utils/validator.dart';
 
 import 'custom_form_field.dart';
 
 class EditItemForm extends StatefulWidget {
-  final FocusNode titleFocusNode;
-  final FocusNode descriptionFocusNode;
-  final String currentTitle;
-  final String currentDescription;
+  final FocusNode namaFocusNode;
+  final FocusNode jenisFocusNode;
+  final FocusNode ukuranFocusNode;
+  final FocusNode aromaFocusNode;
+  final FocusNode packagingFocusNode;
+  final String currentNama;
+  final String currentJenis;
+  final String currentUkuran;
+  final String currentAroma;
+  final String currentPackaging;
   final String documentId;
 
   const EditItemForm({
-    this.titleFocusNode,
-    this.descriptionFocusNode,
-    this.currentTitle,
-    this.currentDescription,
+    this.namaFocusNode,
+    this.jenisFocusNode,
+    this.ukuranFocusNode,
+    this.aromaFocusNode,
+    this.packagingFocusNode,
+    this.currentNama,
+    this.currentJenis,
+    this.currentUkuran,
+    this.currentAroma,
+    this.currentPackaging,
     this.documentId,
   });
 
@@ -30,17 +42,30 @@ class _EditItemFormState extends State<EditItemForm> {
 
   bool _isProcessing = false;
 
-  TextEditingController _titleController;
-  TextEditingController _descriptionController;
+  TextEditingController _namaController;
+  TextEditingController _jenisController;
+  TextEditingController _ukuranController;
+  TextEditingController _aromaController;
+  TextEditingController _packagingController;
 
   @override
   void initState() {
-    _titleController = TextEditingController(
-      text: widget.currentTitle,
+    _namaController = TextEditingController(
+      text: widget.currentNama,
     );
 
-    _descriptionController = TextEditingController(
-      text: widget.currentDescription,
+    _jenisController = TextEditingController(
+      text: widget.currentJenis,
+    );
+    _ukuranController = TextEditingController(
+      text: widget.currentUkuran,
+    );
+
+    _aromaController = TextEditingController(
+      text: widget.currentAroma,
+    );
+    _packagingController = TextEditingController(
+      text: widget.currentPackaging,
     );
     super.initState();
   }
@@ -53,59 +78,131 @@ class _EditItemFormState extends State<EditItemForm> {
         children: [
           Padding(
             padding: const EdgeInsets.only(
-              left: 8.0,
-              right: 8.0,
-              bottom: 24.0,
+              left: 4.0,
+              right: 4.0,
+              bottom: 12.0,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 24.0),
+                SizedBox(height: 15.0),
                 Text(
-                  'Title',
+                  'Nama Customer',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
-                    fontSize: 22.0,
+                    color: Colors.black,
+                    fontSize: 15.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: 3.0),
                 CustomFormField(
                   isLabelEnabled: false,
-                  controller: _titleController,
-                  focusNode: widget.titleFocusNode,
+                  controller: _namaController,
+                  focusNode: widget.namaFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.next,
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Title',
-                  hint: 'Enter your note title',
+                  label: 'Nama Customer',
+                  hint: 'Enter your note name',
                 ),
-                SizedBox(height: 24.0),
+                SizedBox(height: 15.0),
                 Text(
-                  'Description',
+                  'Jenis',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
-                    fontSize: 22.0,
+                    color: Colors.black,
+                    fontSize: 15.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: 3.0),
                 CustomFormField(
-                  maxLines: 10,
+                  maxLines: 1,
                   isLabelEnabled: false,
-                  controller: _descriptionController,
-                  focusNode: widget.descriptionFocusNode,
+                  controller: _jenisController,
+                  focusNode: widget.jenisFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.done,
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Description',
-                  hint: 'Enter your note description',
+                  label: 'Jenis',
+                  hint: 'Enter your note jenis',
+                ),
+                SizedBox(height: 15.0),
+                Text(
+                  'Ukuran',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 3.0),
+                CustomFormField(
+                  maxLines: 1,
+                  isLabelEnabled: false,
+                  controller: _ukuranController,
+                  focusNode: widget.ukuranFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.done,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Ukuran',
+                  hint: 'Enter your note ukuran',
+                ),
+                SizedBox(height: 15.0),
+                Text(
+                  'Aroma',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 3.0),
+                CustomFormField(
+                  maxLines: 1,
+                  isLabelEnabled: false,
+                  controller: _aromaController,
+                  focusNode: widget.aromaFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.done,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Aroma',
+                  hint: 'Enter your note aroma',
+                ),
+                SizedBox(height: 15.0),
+                Text(
+                  'Packaging',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 3.0),
+                CustomFormField(
+                  maxLines: 1,
+                  isLabelEnabled: false,
+                  controller: _packagingController,
+                  focusNode: widget.packagingFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.done,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Packaging',
+                  hint: 'Enter your note packaging',
                 ),
               ],
             ),
@@ -115,7 +212,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   padding: const EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.firebaseOrange,
+                      Colors.red[400],
                     ),
                   ),
                 )
@@ -124,7 +221,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        CustomColors.firebaseOrange,
+                        Colors.red[400],
                       ),
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
@@ -133,8 +230,11 @@ class _EditItemFormState extends State<EditItemForm> {
                       ),
                     ),
                     onPressed: () async {
-                      widget.titleFocusNode.unfocus();
-                      widget.descriptionFocusNode.unfocus();
+                      widget.namaFocusNode.unfocus();
+                      widget.jenisFocusNode.unfocus();
+                      widget.ukuranFocusNode.unfocus();
+                      widget.aromaFocusNode.unfocus();
+                      widget.packagingFocusNode.unfocus();
 
                       if (_editItemFormKey.currentState.validate()) {
                         setState(() {
@@ -143,8 +243,11 @@ class _EditItemFormState extends State<EditItemForm> {
 
                         await Database.updateItem(
                           docId: widget.documentId,
-                          title: _titleController.text,
-                          description: _descriptionController.text,
+                          nama: _namaController.text,
+                          jenis: _jenisController.text,
+                          ukuran: _ukuranController.text,
+                          aroma: _aromaController.text,
+                          packaging: _packagingController.text,
                         );
 
                         setState(() {
@@ -155,13 +258,13 @@ class _EditItemFormState extends State<EditItemForm> {
                       }
                     },
                     child: Padding(
-                      padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+                      padding: EdgeInsets.only(top: 17.0, bottom: 20.0),
                       child: Text(
                         'UPDATE ITEM',
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: CustomColors.firebaseGrey,
+                          color: Colors.white,
                           letterSpacing: 2,
                         ),
                       ),

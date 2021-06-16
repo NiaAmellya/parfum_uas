@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/utils/database.dart';
 import 'package:parfum_uas/widgets/app_bar_title.dart';
 import 'package:parfum_uas/widgets/edit_item_form.dart';
 
 class EditScreen extends StatefulWidget {
-  final String currentTitle;
-  final String currentDescription;
+  final String currentNama;
+  final String currentJenis;
+  final String currentUkuran;
+  final String currentAroma;
+  final String currentPackaging;
   final String documentId;
 
   EditScreen({
-    this.currentTitle,
-    this.currentDescription,
+    this.currentNama,
+    this.currentJenis,
+    this.currentUkuran,
+    this.currentAroma,
+    this.currentPackaging,
     this.documentId,
   });
 
@@ -20,9 +25,11 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
-  final FocusNode _titleFocusNode = FocusNode();
-
-  final FocusNode _descriptionFocusNode = FocusNode();
+  final FocusNode _namaFocusNode = FocusNode();
+  final FocusNode _jenisFocusNode = FocusNode();
+  final FocusNode _ukuranFocusNode = FocusNode();
+  final FocusNode _aromaFocusNode = FocusNode();
+  final FocusNode _packagingFocusNode = FocusNode();
 
   bool _isDeleting = false;
 
@@ -30,14 +37,17 @@ class _EditScreenState extends State<EditScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _titleFocusNode.unfocus();
-        _descriptionFocusNode.unfocus();
+        _namaFocusNode.unfocus();
+        _jenisFocusNode.unfocus();
+        _ukuranFocusNode.unfocus();
+        _aromaFocusNode.unfocus();
+        _packagingFocusNode.unfocus();
       },
       child: Scaffold(
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: Colors.red[50],
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: CustomColors.firebaseNavy,
+          backgroundColor: Colors.red[400],
           title: AppBarTitle(),
           actions: [
             _isDeleting
@@ -87,10 +97,16 @@ class _EditScreenState extends State<EditScreen> {
             ),
             child: EditItemForm(
               documentId: widget.documentId,
-              titleFocusNode: _titleFocusNode,
-              descriptionFocusNode: _descriptionFocusNode,
-              currentTitle: widget.currentTitle,
-              currentDescription: widget.currentDescription,
+              namaFocusNode: _namaFocusNode,
+              jenisFocusNode: _jenisFocusNode,
+              ukuranFocusNode: _ukuranFocusNode,
+              aromaFocusNode: _aromaFocusNode,
+              packagingFocusNode: _packagingFocusNode,
+              currentNama: widget.currentNama,
+              currentJenis: widget.currentJenis,
+              currentUkuran: widget.currentUkuran,
+              currentAroma: widget.currentAroma,
+              currentPackaging: widget.currentPackaging,
             ),
           ),
         ),

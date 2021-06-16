@@ -12,28 +12,33 @@ class Recommendation1State extends State<Recommendation1> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Recommendation Parfume'),
+          title: Text('Catalog'),
+          backgroundColor: Colors.red[400],
         ),
+        backgroundColor: Colors.red[200],
         body: Column(children: [
-          Container(
-            child: Column(
-              children: <Widget>[
-                // Foto utama
-                new Image.asset('img/woman.jpeg'),
-              ],
-            ),
-          ),
+          //   Container(
+          //     child: Column(
+          //       children: <Widget>[
+          //         // Foto utama
+          //         new Image.asset('img/woman.jpeg'),
+          //       ],
+          //     ),
+          //   ),
           //button recomendation
           Container(
-            height: 50,
-            width: 250,
+            height: 300,
+            width: 425,
             margin: EdgeInsets.all(10),
             child: RaisedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),
                   side: BorderSide(color: Color.fromRGBO(0, 0, 0, 1))),
               child: Column(
-                children: [
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  // Foto utama
+                  new Image.asset('img/woman.jpeg'),
                   Text("WOMAN",
                       style: TextStyle(
                           fontSize: 27, color: Color.fromRGBO(0, 0, 0, 1))),
@@ -50,23 +55,26 @@ class Recommendation1State extends State<Recommendation1> {
           //button custome
           Container(
             child: Column(
-              children: <Widget>[
-                // Foto utama
-                new Image.asset('img/man.jpeg'),
-              ],
-            ),
+                // children: <Widget>[
+                //   // Foto utama
+                //   new Image.asset('img/man.jpeg'),
+                // ],
+                ),
           ),
           //button recomendation
           Container(
-            height: 50,
-            width: 250,
+            height: 300,
+            width: 425,
             margin: EdgeInsets.all(10),
             child: RaisedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),
                   side: BorderSide(color: Color.fromRGBO(0, 0, 0, 1))),
               child: Column(
-                children: [
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  // Foto utama
+                  new Image.asset('img/man.jpeg'),
                   Text("MAN",
                       style: TextStyle(
                           fontSize: 27, color: Color.fromRGBO(0, 0, 0, 1))),

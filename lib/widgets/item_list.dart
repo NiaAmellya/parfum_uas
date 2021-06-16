@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:parfum_uas/res/custom_colors.dart';
+//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/screens/edit_screen.dart';
 import 'package:parfum_uas/utils/database.dart';
 
@@ -19,12 +19,15 @@ class ItemList extends StatelessWidget {
             itemBuilder: (context, index) {
               var noteInfo = snapshot.data.docs[index].data();
               String docID = snapshot.data.docs[index].id;
-              String title = noteInfo['title'];
-              String description = noteInfo['description'];
+              String nama = noteInfo['nama'];
+              String jenis = noteInfo['jenis'];
+              String ukuran = noteInfo['ukuran'];
+              String aroma = noteInfo['aroma'];
+              String packaging = noteInfo['packaging'];
 
               return Ink(
                 decoration: BoxDecoration(
-                  color: CustomColors.firebaseGrey.withOpacity(0.1),
+                  color: Colors.blue[100].withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: ListTile(
@@ -34,21 +37,44 @@ class ItemList extends StatelessWidget {
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => EditScreen(
-                        currentTitle: title,
-                        currentDescription: description,
+                        currentNama: nama,
+                        currentJenis: jenis,
+                        currentUkuran: ukuran,
+                        currentAroma: aroma,
+                        currentPackaging: packaging,
                         documentId: docID,
                       ),
                     ),
                   ),
                   title: Text(
-                    title,
+                    nama,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  subtitle: Text(
-                    description,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        ("Jenis     : " + jenis),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        ("Ukuran  : " + ukuran + " ml"),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        ("Aroma   : " + aroma),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        ("Packaging: " + packaging),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
                   ),
                 ),
               );
@@ -59,7 +85,7 @@ class ItemList extends StatelessWidget {
         return Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
-              CustomColors.firebaseOrange,
+              Colors.red[400],
             ),
           ),
         );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parfum_uas/res/custom_colors.dart';
+import 'package:parfum_uas/pages/navigation.dart';
+//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/screens/add_screen.dart';
-import 'package:parfum_uas/widgets/app_bar_title.dart';
+//import 'package:parfum_uas/widgets/app_bar_title.dart';
 import 'package:parfum_uas/widgets/item_list.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -17,11 +18,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.firebaseNavy,
+      backgroundColor: Colors.red[100],
+      drawer: NavigationWidget(),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: CustomColors.firebaseNavy,
-        title: AppBarTitle(),
+        backgroundColor: Colors.red[400],
+        title: Text("Custom"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -31,7 +33,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           );
         },
-        backgroundColor: CustomColors.firebaseOrange,
+        backgroundColor: Colors.red[400],
         child: Icon(
           Icons.add,
           color: Colors.white,

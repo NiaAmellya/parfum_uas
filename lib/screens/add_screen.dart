@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:parfum_uas/res/custom_colors.dart';
+//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/widgets/add_item_form.dart';
-import 'package:parfum_uas/widgets/app_bar_title.dart';
+//import 'package:parfum_uas/widgets/app_bar_title.dart';
 
 class AddScreen extends StatelessWidget {
-  final FocusNode _titleFocusNode = FocusNode();
-  final FocusNode _descriptionFocusNode = FocusNode();
+  final FocusNode _namaFocusNode = FocusNode();
+  final FocusNode _jenisFocusNode = FocusNode();
+  final FocusNode _ukuranFocusNode = FocusNode();
+  final FocusNode _aromaFocusNode = FocusNode();
+  final FocusNode _packagingFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _titleFocusNode.unfocus();
-        _descriptionFocusNode.unfocus();
+        _namaFocusNode.unfocus();
+        _jenisFocusNode.unfocus();
+        _ukuranFocusNode.unfocus();
+        _aromaFocusNode.unfocus();
+        _packagingFocusNode.unfocus();
       },
       child: Scaffold(
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: Colors.red[100],
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: CustomColors.firebaseNavy,
-          title: AppBarTitle(),
+          backgroundColor: Colors.red[400],
+          title: Text("Add Item"),
         ),
         body: SafeArea(
           child: Padding(
@@ -29,8 +35,11 @@ class AddScreen extends StatelessWidget {
               bottom: 20.0,
             ),
             child: AddItemForm(
-              titleFocusNode: _titleFocusNode,
-              descriptionFocusNode: _descriptionFocusNode,
+              namaFocusNode: _namaFocusNode,
+              jenisFocusNode: _jenisFocusNode,
+              ukuranFocusNode: _ukuranFocusNode,
+              aromaFocusNode: _aromaFocusNode,
+              packagingFocusNode: _packagingFocusNode,
             ),
           ),
         ),

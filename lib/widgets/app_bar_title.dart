@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parfum_uas/res/custom_colors.dart';
+//import 'package:parfum_uas/res/custom_colors.dart';
 
 class AppBarTitle extends StatelessWidget {
   @override
@@ -14,16 +14,9 @@ class AppBarTitle extends StatelessWidget {
         ),
         SizedBox(width: 8),
         Text(
-          'FlutterFire',
-          style: TextStyle(
-            color: CustomColors.firebaseYellow,
-            fontSize: 18,
-          ),
-        ),
-        Text(
           ' CRUD',
           style: TextStyle(
-            color: CustomColors.firebaseOrange,
+            color: Colors.white,
             fontSize: 18,
           ),
         ),

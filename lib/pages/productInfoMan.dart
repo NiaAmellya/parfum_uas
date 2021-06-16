@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parfum_uas/pages/navigation.dart';
 
 class ProductInfoMan extends StatefulWidget {
   @override
@@ -11,23 +12,11 @@ class _ProductInfoState extends State<ProductInfoMan> {
     final Map<String, Object> rcvdData =
         ModalRoute.of(context).settings.arguments;
     return Scaffold(
+      backgroundColor: Colors.red[200],
+      drawer: NavigationWidget(),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.favorite_border),
-          )
-        ],
+        title: Text(' '),
+        backgroundColor: Colors.red[400],
       ),
       body: Container(
         child: Column(
@@ -56,7 +45,7 @@ class _ProductInfoState extends State<ProductInfoMan> {
               ),
             ),
             Container(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.red[300].withOpacity(0.2),
               padding: EdgeInsets.only(left: 25, top: 20),
               child: Row(
                 children: <Widget>[
@@ -83,10 +72,10 @@ class _ProductInfoState extends State<ProductInfoMan> {
             ),
             Expanded(
               child: Container(
-                color: Colors.grey.withOpacity(0.2),
+                color: Colors.red[300].withOpacity(0.2),
                 padding: EdgeInsets.all(25),
                 child: Text(
-                  "Parfum adalah campuran minyak esensial dan senyawa aroma, fiksatif, dan pelarut yang digunakan untuk memberikan bau wangi untuk tubuh manusia, objek, atau ruangan. Ada Berbagai macam ekstrak, yaitu parfum, Eau de parfum, Eau de toilette, atau Eau de Cologne.",
+                  '${rcvdData['detail']}',
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                   textAlign: TextAlign.justify,
                 ),
@@ -96,7 +85,7 @@ class _ProductInfoState extends State<ProductInfoMan> {
               height: 100,
               padding: EdgeInsets.only(left: 25, right: 25),
               alignment: Alignment.bottomCenter,
-              color: Colors.grey,
+              color: Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[],

@@ -1,3 +1,4 @@
+import 'package:parfum_uas/pages/navigation.dart';
 import 'package:parfum_uas/pages/recommendation1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class Home extends StatelessWidget {
     //membuat widget dan menjalankan program
     Widget image_slider_carousel = Container(
       //slider pada dihalaman awal
-      height: 500,
+      height: 400,
       //width: 200,
       child: Carousel(
         boxFit: BoxFit.fill,
@@ -28,15 +29,17 @@ class Home extends StatelessWidget {
         ],
         autoplay: true, // Slider berjalan sesuai dengan waktu yang ditentukan
         indicatorBgPadding: 1.0,
-        dotBgColor: Colors.black,
-        dotColor: Colors.red,
+        dotBgColor: Colors.red[300],
+        dotColor: Colors.white,
         dotSize: 4.0,
       ),
     );
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red[200],
+      drawer: NavigationWidget(),
       appBar: AppBar(
         title: Text('Parfume'),
+        backgroundColor: Colors.red[400],
       ),
       body: Container(
         child: Column(
@@ -51,8 +54,11 @@ class Home extends StatelessWidget {
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Color.fromRGBO(0, 0, 0, 1))),
+                    side: BorderSide(
+                      color: Color.fromRGBO(0, 0, 0, 1),
+                    )),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text("Recommendation",
                         style: TextStyle(
@@ -77,6 +83,7 @@ class Home extends StatelessWidget {
                     borderRadius: BorderRadius.circular(18.0),
                     side: BorderSide(color: Color.fromRGBO(0, 0, 0, 1))),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text("Custome",
                         style: TextStyle(

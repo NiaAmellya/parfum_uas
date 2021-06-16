@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:parfum_uas/res/custom_colors.dart';
+//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/utils/database.dart';
 import 'package:parfum_uas/utils/validator.dart';
-
 import 'custom_form_field.dart';
 
 class AddItemForm extends StatefulWidget {
-  final FocusNode titleFocusNode;
-  final FocusNode descriptionFocusNode;
+  final FocusNode namaFocusNode;
+  final FocusNode jenisFocusNode;
+  final FocusNode ukuranFocusNode;
+  final FocusNode aromaFocusNode;
+  final FocusNode packagingFocusNode;
 
   const AddItemForm({
-    this.titleFocusNode,
-    this.descriptionFocusNode,
+    this.namaFocusNode,
+    this.jenisFocusNode,
+    this.ukuranFocusNode,
+    this.aromaFocusNode,
+    this.packagingFocusNode,
   });
 
   @override
@@ -23,8 +28,11 @@ class _AddItemFormState extends State<AddItemForm> {
 
   bool _isProcessing = false;
 
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _namaController = TextEditingController();
+  final TextEditingController _jenisController = TextEditingController();
+  final TextEditingController _ukuranController = TextEditingController();
+  final TextEditingController _aromaController = TextEditingController();
+  final TextEditingController _packagingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,59 +42,132 @@ class _AddItemFormState extends State<AddItemForm> {
         children: [
           Padding(
             padding: const EdgeInsets.only(
-              left: 8.0,
-              right: 8.0,
-              bottom: 24.0,
+              left: 4.0,
+              right: 4.0,
+              bottom: 15.0,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 24.0),
+                SizedBox(height: 15.0),
                 Text(
-                  'Title',
+                  'Nama Customer',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
-                    fontSize: 22.0,
+                    color: Colors.black,
+                    fontSize: 15.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: 3.0),
                 CustomFormField(
                   isLabelEnabled: false,
-                  controller: _titleController,
-                  focusNode: widget.titleFocusNode,
+                  controller: _namaController,
+                  focusNode: widget.namaFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.next,
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Title',
-                  hint: 'Enter your note title',
+                  label: 'Nama Customer',
+                  hint: 'Enter your note name',
                 ),
-                SizedBox(height: 24.0),
+                SizedBox(height: 15.0),
                 Text(
-                  'Description',
+                  'Jenis',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
-                    fontSize: 22.0,
+                    color: Colors.black,
+                    fontSize: 15.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: 3.0),
                 CustomFormField(
-                  maxLines: 10,
+                  maxLines: 2,
                   isLabelEnabled: false,
-                  controller: _descriptionController,
-                  focusNode: widget.descriptionFocusNode,
+                  controller: _jenisController,
+                  focusNode: widget.jenisFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.done,
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Description',
-                  hint: 'Enter your note description',
+                  label: 'Jenis',
+                  hint: 'Enter your note jenis',
+                ),
+                SizedBox(height: 15.0),
+                Text(
+                  'Ukuran',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 3.0),
+                CustomFormField(
+                  maxLines: 1,
+                  isLabelEnabled: false,
+                  controller: _ukuranController,
+                  focusNode: widget.ukuranFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.done,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Ukuran',
+                  hint: 'Enter your note ukuran',
+                ),
+                SizedBox(height: 15.0),
+                Text(
+                  'Aroma',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 3.0),
+                CustomFormField(
+                  maxLines: 2,
+                  isLabelEnabled: false,
+                  controller: _aromaController,
+                  focusNode: widget.aromaFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.done,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Aroma',
+                  hint: 'Enter your note aroma',
+                ),
+                SizedBox(height: 15.0),
+                //new Icon(Icons.),
+                Text(
+                  'Packaging',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 3.0),
+                CustomFormField(
+                  maxLines: 2,
+                  isLabelEnabled: false,
+                  controller: _packagingController,
+                  focusNode: widget.packagingFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.done,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Packaging',
+                  hint: 'Enter your note packaging',
                 ),
               ],
             ),
@@ -96,7 +177,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   padding: const EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.firebaseOrange,
+                      Colors.red[400],
                     ),
                   ),
                 )
@@ -105,7 +186,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        CustomColors.firebaseOrange,
+                        Colors.red[400],
                       ),
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
@@ -114,8 +195,11 @@ class _AddItemFormState extends State<AddItemForm> {
                       ),
                     ),
                     onPressed: () async {
-                      widget.titleFocusNode.unfocus();
-                      widget.descriptionFocusNode.unfocus();
+                      widget.namaFocusNode.unfocus();
+                      widget.jenisFocusNode.unfocus();
+                      widget.ukuranFocusNode.unfocus();
+                      widget.aromaFocusNode.unfocus();
+                      widget.packagingFocusNode.unfocus();
 
                       if (_addItemFormKey.currentState.validate()) {
                         setState(() {
@@ -123,8 +207,11 @@ class _AddItemFormState extends State<AddItemForm> {
                         });
 
                         await Database.addItem(
-                          title: _titleController.text,
-                          description: _descriptionController.text,
+                          nama: _namaController.text,
+                          jenis: _jenisController.text,
+                          ukuran: _ukuranController.text,
+                          aroma: _aromaController.text,
+                          packaging: _packagingController.text,
                         );
 
                         setState(() {
@@ -135,13 +222,13 @@ class _AddItemFormState extends State<AddItemForm> {
                       }
                     },
                     child: Padding(
-                      padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+                      padding: EdgeInsets.only(top: 12.0, bottom: 10.0),
                       child: Text(
                         'ADD ITEM',
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: CustomColors.firebaseGrey,
+                          color: Colors.white,
                           letterSpacing: 2,
                         ),
                       ),
