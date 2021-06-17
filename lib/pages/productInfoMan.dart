@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parfum_uas/pages/man.dart';
 import 'package:parfum_uas/pages/navigation.dart';
 
 class ProductInfoMan extends StatefulWidget {
@@ -17,6 +18,12 @@ class _ProductInfoState extends State<ProductInfoMan> {
       appBar: AppBar(
         title: Text(' '),
         backgroundColor: Colors.red[400],
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         child: Column(

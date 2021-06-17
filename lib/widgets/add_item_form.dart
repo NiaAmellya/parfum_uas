@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/utils/database.dart';
 import 'package:parfum_uas/utils/validator.dart';
 import 'custom_form_field.dart';

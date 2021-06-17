@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/screens/edit_screen.dart';
 import 'package:parfum_uas/utils/database.dart';
 

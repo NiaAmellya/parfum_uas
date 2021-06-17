@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parfum_uas/pages/navigation.dart';
-//import 'package:parfum_uas/res/custom_colors.dart';
 import 'package:parfum_uas/screens/add_screen.dart';
-//import 'package:parfum_uas/widgets/app_bar_title.dart';
 import 'package:parfum_uas/widgets/item_list.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -11,9 +9,9 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final FocusNode _nameFocusNode = FocusNode();
-  final FocusNode _emailFocusNode = FocusNode();
-  final FocusNode _passwordFocusNode = FocusNode();
+  //final FocusNode _nameFocusNode = FocusNode();
+  //final FocusNode _emailFocusNode = FocusNode();
+  //final FocusNode _passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {

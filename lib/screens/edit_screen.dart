@@ -67,7 +67,7 @@ class _EditScreenState extends State<EditScreen> {
                 : IconButton(
                     icon: Icon(
                       Icons.delete,
-                      color: Colors.redAccent,
+                      color: Colors.white,
                       size: 32,
                     ),
                     onPressed: () async {
@@ -88,27 +88,31 @@ class _EditScreenState extends State<EditScreen> {
                   ),
           ],
         ),
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 16.0,
-              right: 16.0,
-              bottom: 20.0,
+        body: ListView(
+          children: [
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0,
+                  bottom: 20.0,
+                ),
+                child: EditItemForm(
+                  documentId: widget.documentId,
+                  namaFocusNode: _namaFocusNode,
+                  jenisFocusNode: _jenisFocusNode,
+                  ukuranFocusNode: _ukuranFocusNode,
+                  aromaFocusNode: _aromaFocusNode,
+                  packagingFocusNode: _packagingFocusNode,
+                  currentNama: widget.currentNama,
+                  currentJenis: widget.currentJenis,
+                  currentUkuran: widget.currentUkuran,
+                  currentAroma: widget.currentAroma,
+                  currentPackaging: widget.currentPackaging,
+                ),
+              ),
             ),
-            child: EditItemForm(
-              documentId: widget.documentId,
-              namaFocusNode: _namaFocusNode,
-              jenisFocusNode: _jenisFocusNode,
-              ukuranFocusNode: _ukuranFocusNode,
-              aromaFocusNode: _aromaFocusNode,
-              packagingFocusNode: _packagingFocusNode,
-              currentNama: widget.currentNama,
-              currentJenis: widget.currentJenis,
-              currentUkuran: widget.currentUkuran,
-              currentAroma: widget.currentAroma,
-              currentPackaging: widget.currentPackaging,
-            ),
-          ),
+          ],
         ),
       ),
     );

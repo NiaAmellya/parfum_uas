@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parfum_uas/pages/navigation.dart';
+import 'package:parfum_uas/pages/woman.dart';
 
 class ProductInfoWoman extends StatefulWidget {
   @override
@@ -12,11 +13,17 @@ class _ProductInfoState extends State<ProductInfoWoman> {
     final Map<String, Object> rcvdData =
         ModalRoute.of(context).settings.arguments;
     return Scaffold(
-      backgroundColor: Colors.red[200],
+      backgroundColor: Colors.white,
       drawer: NavigationWidget(),
       appBar: AppBar(
         title: Text(' '),
         backgroundColor: Colors.red[400],
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         child: Column(

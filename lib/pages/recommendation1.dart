@@ -1,3 +1,4 @@
+import 'package:parfum_uas/pages/home.dart';
 import 'package:parfum_uas/pages/woman.dart';
 import 'package:parfum_uas/pages/man.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,15 @@ class Recommendation1State extends State<Recommendation1> {
         appBar: AppBar(
           title: Text('Catalog'),
           backgroundColor: Colors.red[400],
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            },
+          ),
         ),
         backgroundColor: Colors.red[200],
         body: Column(children: [

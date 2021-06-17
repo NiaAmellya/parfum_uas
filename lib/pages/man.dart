@@ -1,6 +1,7 @@
 import 'package:parfum_uas/pages/productInfoMan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:parfum_uas/pages/recommendation1.dart';
 
 void main() {
   runApp(Man());
@@ -32,6 +33,15 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: Text(' '),
         backgroundColor: Colors.red[400],
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Recommendation1()),
+            );
+          },
+        ),
       ),
       body: Container(
         padding: EdgeInsets.all(20),
