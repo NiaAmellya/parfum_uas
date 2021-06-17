@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:parfum_uas/pages/man.dart';
 import 'package:parfum_uas/pages/navigation.dart';
 
 class ProductInfoMan extends StatefulWidget {
+  ProductInfoMan({this.document});
+  QueryDocumentSnapshot document;
   @override
   _ProductInfoState createState() => _ProductInfoState();
 }
@@ -13,7 +16,7 @@ class _ProductInfoState extends State<ProductInfoMan> {
     final Map<String, Object> rcvdData =
         ModalRoute.of(context).settings.arguments;
     return Scaffold(
-      backgroundColor: Colors.red[200],
+      backgroundColor: Colors.white,
       drawer: NavigationWidget(),
       appBar: AppBar(
         title: Text(' '),
@@ -32,24 +35,29 @@ class _ProductInfoState extends State<ProductInfoMan> {
             Container(
               padding: EdgeInsets.only(left: 25),
               child: Text(
-                '${rcvdData['name']}',
+                widget.document['nama'],
                 style: TextStyle(
                   fontSize: 50,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
             Center(
-              child: Hero(
-                tag: '${rcvdData['img']}',
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.45,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('img/${rcvdData['img']}.jpg'),
-                          fit: BoxFit.contain)),
-                ),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.25,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                          widget.document['gambar'],
+                        ),
+                        fit: BoxFit.contain)),
               ),
+            ),
+            SizedBox(
+              height: 20,
             ),
             Container(
               color: Colors.red[300].withOpacity(0.2),
@@ -58,7 +66,7 @@ class _ProductInfoState extends State<ProductInfoMan> {
                 children: <Widget>[
                   Container(
                     child: Text(
-                      '\$${rcvdData['price']}',
+                      widget.document['harga'],
                       style: TextStyle(
                           color: Colors.green,
                           fontSize: 30,
@@ -67,7 +75,7 @@ class _ProductInfoState extends State<ProductInfoMan> {
                   ),
                   Container(
                     child: Text(
-                      ' /${rcvdData['quantity']}',
+                      widget.document['ukuran'],
                       style: TextStyle(
                           color: Colors.green,
                           fontSize: 20,
@@ -78,14 +86,19 @@ class _ProductInfoState extends State<ProductInfoMan> {
               ),
             ),
             Expanded(
-              child: Container(
-                color: Colors.red[300].withOpacity(0.2),
-                padding: EdgeInsets.all(25),
-                child: Text(
-                  '${rcvdData['detail']}',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.justify,
-                ),
+              child: ListView(
+                children: [
+                  Container(
+                    color: Colors.red[300].withOpacity(0.2),
+                    padding: EdgeInsets.all(25),
+                    child: Text(
+                      "Parfum adalah campuran minyak esensial dan senyawa aroma, fiksatif, dan pelarut yang digunakan untuk memberikan bau wangi untuk tubuh manusia, objek, atau ruangan. Ada Berbagai macam ekstrak, yaitu parfum, Eau de parfum, Eau de toilette, atau Eau de Cologne.",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -95,7 +108,6 @@ class _ProductInfoState extends State<ProductInfoMan> {
               color: Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[],
               ),
             )
           ],
